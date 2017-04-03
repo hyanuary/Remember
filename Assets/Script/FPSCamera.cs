@@ -33,6 +33,8 @@ public class FPSCamera : MonoBehaviour {
         float hozTurn = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
         float verTurn = Input.GetAxis("Mouse Y") * upDownSpeed * Time.deltaTime * invertVal;
 
+        
+
         //applying the turning
         player.transform.Rotate(0, hozTurn, 0);
         this.gameObject.transform.Rotate(verTurn, 0, 0);
