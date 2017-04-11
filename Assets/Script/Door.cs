@@ -20,7 +20,6 @@ public class Door : MonoBehaviour {
         {
             transform.Rotate(0, 90, 0);
             transform.Translate(0, 0, 1);
-            //timerOn = true;
             turn = false;
         }
         if (timerOn)
