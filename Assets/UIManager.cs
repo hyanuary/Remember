@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour {
 	public bool timerCheck = true;
 	public bool deleteData;
 
+	List<float> fList = new List<float> ();
+
 	// Use this for initialization
 	void Start()
 	{
@@ -22,6 +24,7 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+		
 		if (timerCheck != false) {
 			timer += Time.deltaTime;
 			pTimer += Time.deltaTime;
@@ -29,7 +32,7 @@ public class UIManager : MonoBehaviour {
 
 		}
 		timeBig.text = "Best Time = " + PlayerPrefs.GetFloat ("timer").ToString("F1");
-	
+
 	}
 
 	void OnApplicationQuit()
@@ -37,5 +40,9 @@ public class UIManager : MonoBehaviour {
 		timerCheck = false;
 		PlayerPrefs.SetFloat ("timer", pTimer);
 		PlayerPrefs.Save ();
+		fList.Add (pTimer);
+		List<string> sList = fList.ConvertAll<string> (x => x.ToString ());
+		string myString = string.Join (",", sList.ToArray ());
+		System.IO.File.WriteAllText ("TextFolder", myString);
 	}
 }

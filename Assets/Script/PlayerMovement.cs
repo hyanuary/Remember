@@ -5,9 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float movementSpeed;
+	public float jumpingForce;
+	public float groundDist;
 
 	// Use this for initialization
 	void Start () {
+
+		groundDist = this.transform.GetComponent<Collider>().bounds.extents.y;
+
 		
 	}
 	
@@ -26,6 +31,17 @@ public class PlayerMovement : MonoBehaviour {
         //move front to back
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         transform.Translate(0, 0, vertical);
+
+		if(Input.GetKey(KeyCode.Space) && CheckGrounded () == true )
+		{
+			//   Debug.Log("jump");
+			this.transform.GetComponent<Rigidbody>().AddForce(0, jumpingForce, 0);
+		}
     }
+
+	public bool CheckGrounded()
+	{
+		return Physics.Raycast(this.transform.position, -Vector3.up, groundDist + 0.1f);
+	}
 
 }
