@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public float movementSpeed;
 	public float jumpingForce;
 	public float groundDist;
+    public float counter;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,15 @@ public class PlayerMovement : MonoBehaviour {
 			//   Debug.Log("jump");
 			this.transform.GetComponent<Rigidbody>().AddForce(0, jumpingForce, 0);
 		}
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movementSpeed = movementSpeed * counter;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            movementSpeed = movementSpeed / counter;
+        }
     }
 
 	public bool CheckGrounded()
