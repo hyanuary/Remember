@@ -8,15 +8,18 @@ public class PickUpObject : MonoBehaviour {
     public GameObject carriedObject;
     public bool isCarrying;
     public bool isOpening;
+    public bool fall;
     public float distance;
     public float smooth;
     public float timer = 5;
 
-	// Use this for initialization
-	void Start () {
-        
+    public UIManager ui;
+   
+    // Use this for initialization
+    void Start () {
+
        
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,6 +71,7 @@ public class PickUpObject : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E))
         {
             dropObject();
+            ui.temper();
         }
     }
 
@@ -76,6 +80,7 @@ public class PickUpObject : MonoBehaviour {
         isCarrying = false;
         carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         carriedObject = null;
+       
     }
 
     void openDoor()
@@ -90,11 +95,13 @@ public class PickUpObject : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 Door d = hit.collider.GetComponent<Door>();
+                
                 if (d != null)
                 {
                     isOpening = true;
                     d.timerOn = true;
                     d.turn = true;
+                   
                 }
             }
         }
