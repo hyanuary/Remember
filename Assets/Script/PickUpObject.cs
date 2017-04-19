@@ -7,8 +7,7 @@ public class PickUpObject : MonoBehaviour {
     public Camera mainCamera;
     public GameObject carriedObject;
     public bool isCarrying;
-    public bool isOpening;
-    public bool fall;
+    public bool isOpened;
     public float distance;
     public float smooth;
     public float timer = 5;
@@ -45,7 +44,7 @@ public class PickUpObject : MonoBehaviour {
 
     void PickUp()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isOpened == true)
         {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
@@ -98,9 +97,9 @@ public class PickUpObject : MonoBehaviour {
                 
                 if (d != null)
                 {
-                    isOpening = true;
                     d.timerOn = true;
                     d.turn = true;
+                    isOpened = true;
                    
                 }
             }
