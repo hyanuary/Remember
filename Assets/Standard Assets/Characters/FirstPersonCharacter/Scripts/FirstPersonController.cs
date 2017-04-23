@@ -83,17 +83,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-            if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == false)
-            {
-                m_MouseLook.YSensitivity = -2;
-                m_IsInverted = true;
-            }
-               
-            else if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == true)
-            {
-                m_MouseLook.YSensitivity = 2;
-                m_IsInverted = false;
-            }
+			if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == false)
+			{
+				m_MouseLook.YSensitivity = -2;
+				m_IsInverted = true;
+			}
+
+			else if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == true)
+			{
+				m_MouseLook.YSensitivity = 2;
+				m_IsInverted = false;
+			}
                
 
             

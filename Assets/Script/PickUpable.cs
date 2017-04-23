@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUpable : MonoBehaviour {
 
     public Rigidbody rb;
-    public bool on = false;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +14,7 @@ public class PickUpable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (on)
-        //    this.rb.isKinematic = true;
-        //else
-        //    this.rb.isKinematic = false;
+        
 		
 	}
 }

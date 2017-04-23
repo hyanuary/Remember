@@ -8,6 +8,7 @@ public class PickUpObject : MonoBehaviour {
     public GameObject carriedObject;
     public bool isCarrying;
     public bool isOpened;
+	public bool haveKey;
     public float distance;
     public float smooth;
     public float timer = 5;
@@ -44,7 +45,7 @@ public class PickUpObject : MonoBehaviour {
 
     void PickUp()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isOpened == true)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
