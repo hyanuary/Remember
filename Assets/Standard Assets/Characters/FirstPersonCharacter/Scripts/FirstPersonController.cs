@@ -83,13 +83,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
-			if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == false)
+			//inverting the camera
+			if (Input.GetButtonDown("Invert") && m_IsInverted == false)
 			{
 				m_MouseLook.YSensitivity = -2;
 				m_IsInverted = true;
 			}
 
-			else if (Input.GetKeyDown(KeyCode.I) && m_IsInverted == true)
+			else if (Input.GetButtonDown("Invert") && m_IsInverted == true)
 			{
 				m_MouseLook.YSensitivity = 2;
 				m_IsInverted = false;
@@ -255,6 +256,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
         {
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+
         }
 
 

@@ -45,7 +45,7 @@ public class PickUpObject : MonoBehaviour {
 
     void PickUp()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetButtonDown("Pick Up"))
         {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
@@ -68,7 +68,7 @@ public class PickUpObject : MonoBehaviour {
 
     void checkDrop()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+		if(Input.GetButtonDown("Pick Up"))
         {
             dropObject();
             ui.temper();
@@ -85,7 +85,7 @@ public class PickUpObject : MonoBehaviour {
 
     void openDoor()
     {
-        if (Input.GetKey(KeyCode.E))
+		if (Input.GetButtonDown("Pick Up"))
         {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
