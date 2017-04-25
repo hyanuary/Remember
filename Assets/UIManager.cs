@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour {
 
 	public Text time;
 	public Text timeBig;
+
+	public Image image;
+
 	public float timer = 0.0f;
 	public float pTimer;
     public float cTimer;
@@ -35,6 +38,10 @@ public class UIManager : MonoBehaviour {
 	void Update()
 	{
         timeCheck();
+
+		if (Input.GetKeyDown ("z")) {
+			image.enabled = false;
+		}
     }
 
     void timeCheck()
